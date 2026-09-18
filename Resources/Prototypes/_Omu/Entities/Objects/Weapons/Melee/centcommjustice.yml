@@ -61,9 +61,8 @@
           attackRate: 1.5
           damage:
             types:
-              Slash: 12
-            woundSeverityMultipliers:
-              Slash: 2
+              Slash: 30
+              Piercing: 30
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60
@@ -87,8 +86,8 @@
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         - type: StaminaDamageOnHit
-          damage: 20
-          overtime: 15
+          damage: 25
+          overtime: 25
           lightAttackDamageMultiplier: 2
           lightAttackOvertimeDamageMultiplier: 1
         soundStateActivate:
@@ -153,32 +152,34 @@
           params:
             variation: 0.250
 
-      empowered: !type:ItemSwitchState
-        verb: empowered
-        energyPerUse: 100
+      smite: !type:ItemSwitchState
+        verb: smite
+        energyPerUse: 1000
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: empowered-icon
+          state: smite-icon
         components:
-        - type: Explosive
-          explosionType: Default
-          totalIntensity: 16
-          intensitySlope: 0.5
-          maxIntensity: 1.6
-          canCreateVacuum: false
-          deleteAfterExplosion: false
-          repeatable: true
-        - type: ExplodeOnMeleeHit
         - type: MeleeWeapon
           canWideSwing: false
           attackRate: 0.5
           animation: WeaponArcThrust
           damage:
             types:
-              Slash: 25
-              Heat: 25
+              Heat: 100
+              Slash: 50
+            armorPenetration: 1
           soundHit:
-            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+              path: /Audio/Weapons/bladeslice.ogg
+        - type: IgniteOnMeleeHit
+          fireStacks: 25
+        - type: BleedInflicter
+          scalingSpeed: 10
+          severityThreshold: 25
+        - type: InjectOnHit
+          reagents:
+          - ReagentId: Amatoxin
+            Quantity: 10
+          limit: 20
         soundStateActivate:
           collection: sparks
           params:

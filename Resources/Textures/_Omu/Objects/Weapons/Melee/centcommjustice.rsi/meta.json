@@ -11,7 +11,7 @@
             "name": "icon"
         },
 		{
-            "name": "empowered-icon",
+            "name": "smite-icon",
             "delays": [
               [
                 1,
@@ -251,7 +251,7 @@
             ]
         },
 		{
-            "name": "empowered-inhand-left",
+            "name": "smite-inhand-left",
 			"directions": 4,
             "delays": [
               [
@@ -281,7 +281,7 @@
             ]
         },
 		{
-            "name": "empowered-inhand-right",
+            "name": "smite-inhand-right",
 			"directions": 4,
             "delays": [
               [
